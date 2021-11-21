@@ -16,21 +16,21 @@ const MovieRow = ({ title, fetchUrl, isLargeRow = false }) => {
   console.log(movies);
   return (
     <section className={styles.row}>
-      <h2>{title}</h2>
+      <h2 className={styles.row_title}>{title}</h2>
       <section className={styles.row_posters}>
-        {movies.map((movie) => {
-          return (
-            <div key={movie.id}>
-              <img
-                className={styles.row_poster}
-                src={`${base_url}${
-                  isLargeRow ? movie?.poster_path : movie?.backdrop_path
-                }`}
-                alt={movie?.original_title || movie?.title || movie?.name}
-              />
-            </div>
-          );
-        })}
+        {movies.map((movie) => (
+          <div key={movie.id}>
+            <img
+              className={`${styles.row_poster} ${
+                isLargeRow && styles.row_posterLarge
+              }`}
+              src={`${base_url}${
+                isLargeRow ? movie?.poster_path : movie?.backdrop_path
+              }`}
+              alt={movie?.original_title || movie?.title || movie?.name}
+            />
+          </div>
+        ))}
       </section>
     </section>
   );
