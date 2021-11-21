@@ -1,7 +1,4 @@
 .banner {
-  background-image: url("../../assets/black-banner.jpg");
-  background-position: center center;
-  background-size: cover;
   object-fit: contain;
   color: white;
   height: 448px;
