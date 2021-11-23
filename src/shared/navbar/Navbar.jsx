@@ -13,7 +13,7 @@ const Navbar = () => {
   };
   useEffect(() => {
     window.addEventListener("scroll", handleNavbar);
-    return () => window.removeEventListener("scroll");
+    return () => window.removeEventListener("scroll", null);
   }, []);
   return (
     <nav className={`${styles.nav} ${show && styles.nav__black}`}>
