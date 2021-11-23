@@ -6,6 +6,8 @@ import { login, logout, selectUser } from "./features/user/userSlice";
 import { auth } from "./firebase";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
+import Profile from "./pages/profile/Profile";
+import Navbar from "./shared/navbar/Navbar";
 
 function App() {
   const user = useSelector(selectUser);
@@ -20,19 +22,23 @@ function App() {
             email: userAuth.email,
           })
         );
-      } else dispatch(logout);
+      } else dispatch(logout());
     });
     return unsubscribe;
-  });
+  }, [dispatch]);
   return (
     <div className="App">
-      <Routes>
-        {!user ? (
-          <Route path="/login" element={<Login />} />
-        ) : (
-          <Route path="/" element={<Home />} />
-        )}
-      </Routes>
+      {!user ? (
+        <Login />
+      ) : (
+        <>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+        </>
+      )}
     </div>
   );
 }

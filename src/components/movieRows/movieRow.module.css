@@ -30,6 +30,9 @@
   transform: scale(1.09);
   opacity: 1;
 }
+.movie_row {
+  margin-bottom: 15px;
+}
 .loading {
   text-align: center;
   width: 100%;

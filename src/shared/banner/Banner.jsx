@@ -16,7 +16,6 @@ const Banner = () => {
     }
     fetchData();
   }, []);
-  console.log(movie);
   function truncate(string, numberOfChar) {
     return string?.length > numberOfChar
       ? string.substr(0, numberOfChar - 1) + "..."
